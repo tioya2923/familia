@@ -1,3 +1,3 @@
 <?php
-include_once("frontend/public/index.html");
+echo file_get_contents('frontend/public/index.html');
 ?>
