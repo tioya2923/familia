@@ -1,1 +1,3 @@
-<?php include_once("frontend/build/index.html");
+<?php
+include_once("frontend/build/index.html");
+?>
