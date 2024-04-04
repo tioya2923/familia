@@ -1,3 +1,3 @@
 <?php
-include_once("frontend/build/");
+include_once("/frontend/build/");
 ?>
