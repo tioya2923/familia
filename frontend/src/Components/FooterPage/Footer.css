@@ -1,0 +1,40 @@
+/* Footer.css */
+
+.container-footer {
+    color: white;
+    padding: 20px 0;
+    font-family: 'Arial', sans-serif;
+    bottom: 0;
+    left: 0;   
+    width: 100%;
+    background-color: #2F4F4F;
+}
+
+
+.footer-nav {
+    list-style: none;
+    padding: 0;
+    margin-top: 40px;
+   
+}
+
+.footer-nav li {
+    list-style-type: none;
+    display: inline;
+    justify-content: space-between;
+    padding: 1em;
+
+}
+
+.footer-nav a {
+    color: rgb(232, 223, 223);
+    text-decoration: none;
+    transition: color 0.3s ease;
+    text-transform: uppercase;
+
+
+}
+
+.footer-nav a:hover {
+    color: #aaa;
+}

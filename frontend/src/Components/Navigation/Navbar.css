@@ -1,0 +1,253 @@
+nav {
+    background-color: #2F4F4F;
+    height: 5.56em;
+    width: 100%;
+    top: 0%;
+    margin-bottom: 2rem;
+    z-index: 2;    
+}
+
+.navbar-content {
+    display: flex;
+    align-items: center;
+    justify-content: space-between; /* Adicionado para alinhar o logotipo à esquerda e os links ao centro */
+}
+
+.logo {
+    height: 60px; /* Ajuste a altura conforme necessário */
+    width: auto; /* Isso mantém a proporção da imagem */
+    margin-right: auto; /* Alterado para auto para empurrar os links para o centro */
+    
+}
+
+.menu-links {
+    display: flex; /* Adicionado para permitir o uso de justify-content */
+    justify-content: center; /* Adicionado para centralizar os links */
+    margin-right: 500px;
+}
+
+.menu-links li {
+    list-style-type: none;
+    display: inline;
+    padding: 1em;
+}
+
+.menu-links li a{
+    text-decoration: none;
+    text-transform: uppercase;
+    z-index: 1;
+    color: white;
+    cursor: pointer;
+}
+
+.menu-toggle {
+    visibility: hidden;   
+}  
+
+/* Extra small devices (phones, 600px and down) */
+@media only screen and (max-width: 600px) {
+    nav {
+        height: 4.56em;
+        width: 100%;
+        top: 0%;
+        margin-bottom: 1rem;    
+        position: fixed; /* Faz o menu-toggle fixo */
+        right: 0; /* Coloca o menu-toggle à direita */
+        z-index: 2;
+        background-color: #2F4F4F;
+    }
+    
+    .navbar-content {
+        display: flex;
+        align-items:center;
+        justify-content: space-between;
+    }
+    
+    .logo {
+        height: 20px; /* Ajusta a altura automaticamente para manter a proporção da imagem */
+        width: 100%; /* Ajusta a largura para o tamanho do dispositivo */
+        margin-top: 16px;
+    }
+    
+    .menu-links {
+        display: none; /* Esconde os links quando o hambúrguer está presente */        
+        flex-direction: column; /* Faz os links aparecerem no sentido vertical */
+        align-items: flex-start; /* Faz os links aparecerem no canto direito */
+    }
+    .menu-links.show {
+        display: flex; /* Mostra os links quando .show é adicionado */
+        
+    }
+   
+    .menu-links li {
+        list-style-type: none;
+        display: inline;
+        height: 37px;
+        width: 100%;
+        margin-left: 0px;
+        background-color: #2F4F4F;
+    }
+    
+    .menu-links li a{
+        text-decoration: none;
+        text-transform: lowercase;
+        z-index: 1;
+        color: white;
+        cursor: pointer;
+        font-size: 20px;
+        font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+        
+    }
+    
+    .menu-toggle {
+        visibility: visible; /* Mostra o hambúrguer */
+        display: block; /* Faz o menu-toggle aparecer em forma de 3 linhas */
+        width: 40px;
+        height: 32px;
+        position: fixed; /* Faz o menu-toggle fixo */
+        right: 15px; /* Coloca o menu-toggle à direita */
+        top: 10px;
+    }  
+    .menu-toggle span {
+        display: block;
+        width: 100%;
+        height: 3px;
+        margin-bottom: 5px;
+        background-color: #2F4F4F;
+       
+    }
+}
+
+
+
+/* Small devices (portrait tablets and large phones, 600px and up) */
+@media only screen and (min-width: 600px) and (max-width:  1024px) {
+    nav {        
+        height: 4.56em;
+        width: 100%;
+        top: 0%;
+        margin-bottom: 1rem;    
+        position: fixed; /* Faz o menu-toggle fixo */
+        right: 0; /* Coloca o menu-toggle à direita */
+        background-color: #2F4F4F;
+        z-index: 2; 
+    }
+    
+    .navbar-content {
+        display: flex;
+        align-items:center;
+        justify-content: space-between;
+    }
+    
+    .logo {
+        height: 40px; /* Ajusta a altura automaticamente para manter a proporção da imagem */
+        width: 100%; /* Ajusta a largura para o tamanho do dispositivo */
+        margin-top: 25px;
+    }
+
+    .logo.hide {
+        display: none;
+    }
+    
+    
+    .menu-links {
+        display: none; /* Esconde os links quando o hambúrguer está presente */        
+        flex-direction: column; /* Faz os links aparecerem no sentido vertical */
+        align-items: flex-start; /* Faz os links aparecerem no canto direito */
+    }
+    .menu-links.show {
+        display: flex; /* Mostra os links quando .show é adicionado */
+        
+    }
+   
+    .menu-links li {
+        list-style-type: none;
+        display: inline;
+        height: 50px;
+        width: 100%;
+        margin-left: 0px;
+        position: absolute;
+        background-color: #2F4F4F;
+    }
+    
+    .menu-links li a{
+        text-decoration: none;
+        text-transform: lowercase;
+        z-index: 1;
+        color: white;
+        cursor: pointer;
+        font-size: 25px;
+        position: absolute;
+        font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+        
+    }
+    
+    .menu-toggle {
+        visibility: visible; /* Mostra o hambúrguer */
+        display: block; /* Faz o menu-toggle aparecer em forma de 3 linhas */
+        width: 60px;
+        height: 52px;
+        position: fixed; /* Faz o menu-toggle fixo */
+        right: 15px; /* Coloca o menu-toggle à direita */
+        top: 20px;
+    }  
+    .menu-toggle span {
+        display: block;
+        width: 100%;
+        height: 3px;
+        margin-bottom: 5px;
+        background-color: #2F4F4F;
+       
+    }
+   
+}
+
+
+@media only screen and (min-width: 1024px)and (max-width:  1500px){
+    nav {
+        height: 5.56em;
+        width: 100%;
+        top: 0%;
+        margin-bottom: 2rem;
+        background-color: #2F4F4F;
+            
+    }
+    
+    .navbar-content {
+        display: flex;
+        align-items: center;
+        justify-content: space-between; /* Adicionado para alinhar o logotipo à esquerda e os links ao centro */
+    }
+    
+    .logo {
+        height: 60px; /* Ajuste a altura conforme necessário */
+        width: 100%; /* Isso mantém a proporção da imagem */
+        
+        
+    }
+    
+    .menu-links {
+        display: flex; /* Adicionado para permitir o uso de justify-content */
+        justify-content: center; /* Adicionado para centralizar os links */
+        margin-right: 250px;
+    }
+    
+    .menu-links li {
+        list-style-type: none;
+        display: inline;
+        padding: 1em;
+    }
+    
+    .menu-links li a{
+        text-decoration: none;
+        text-transform: uppercase;
+        z-index: 1;
+        color: white;
+        cursor: pointer;
+    }
+    
+    .menu-toggle {
+        visibility: hidden;   
+    } 
+}
+

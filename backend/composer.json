@@ -1,0 +1,16 @@
+{
+    "name": "yavam/server",
+    "version": "1.0.1",
+    "autoload": {
+        "psr-4": {
+            "Yavam\\Server\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "tioya2923",
+            "email": "30002076@students.ual.pt"
+        }
+    ],
+    "require": {}
+}
