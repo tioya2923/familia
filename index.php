@@ -1,4 +1,4 @@
 
 <?php 
-echo "Olá"
- ?>
+echo "Olá",
+header( 'Location: /index.html' ) ;  ?>
