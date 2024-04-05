@@ -2,6 +2,10 @@
     "name": "familia",
     "scripts": {
       "heroku-postbuild": "cd frontend && npm install && npm run build"
-    }
+    },
+    "devDependencies": {
+      "@babel/plugin-proposal-private-property-in-object": "^7.14.5"
+  }
+  
   }
   
