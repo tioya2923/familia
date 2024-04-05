@@ -12,5 +12,11 @@
             "email": "30002076@students.ual.pt"
         }
     ],
-    "require": {}
+    "require": {},
+    "scripts": {
+        "post-install-cmd": [
+            "npm install --prefix frontend",
+            "npm run build --prefix frontend"
+        ]
+    }
 }
