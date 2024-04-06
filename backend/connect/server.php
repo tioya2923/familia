@@ -3,8 +3,6 @@
 // Incluir o ficheiro de conexão
 include '../connect/cors.php';
 
-
-
 // Conectar ao banco de dados
 $servername = "localhost";
 $username = "root";
