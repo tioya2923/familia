@@ -16,5 +16,5 @@ header("Content-Type: application/json");
 // Saber o que fazem
 //header('Access-Control-Max-Age: 1728000');
 //header('Content-Length: 0');
-header('Content-Type: text/plain');
+//header('Content-Type: text/plain');
 ?>
