@@ -9,7 +9,7 @@ const VideoPage = () => {
 
     useEffect(() => {
         const fetchVideo = async () => {
-            const response = await fetch(`http://localhost:8000/components/videoPage.php?id=${id}`, { method: "GET" });
+            const response = await fetch(`https://familia-gouveia-0f628f261ee1.herokuapp.com/components/videoPage.php?id=${id}`, { method: "GET" });
             if (response.ok) {
                 const data = await response.json();
                 setVideo(data);

@@ -6,7 +6,7 @@ const DeleteVideo = () => {
     const [videos, setVideos] = useState([]);
 
     useEffect(() => {
-        axios.get("http://localhost:8000/components/eliminarVideo.php").then(response => {
+        axios.get("https://familia-gouveia-0f628f261ee1.herokuapp.com/components/eliminarVideo.php").then(response => {
             setVideos(response.data);
         });
     }, []);
@@ -15,7 +15,7 @@ const DeleteVideo = () => {
         const userConfirmation = window.confirm("Tem certeza que deseja eliminar este vídeo?");
 
         if (userConfirmation) {
-            axios.delete(`http://localhost:8000/components/exclusaoVideo.php?id=${id}`).then(response => {
+            axios.delete(`https://familia-gouveia-0f628f261ee1.herokuapp.com/components/exclusaoVideo.php?id=${id}`).then(response => {
                 console.log(response.data);
                 setVideos(videos.filter(video => video.id !== id));
                 alert("O vídeo foi eliminado com sucesso!");

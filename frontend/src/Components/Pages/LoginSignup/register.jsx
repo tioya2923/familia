@@ -20,7 +20,7 @@ function Register() {
       setConfirmError("As palavras passe não coincidem");
       return;
     }
-    const url = "http://localhost:8000/components/registar.php";
+    const url = "https://familia-gouveia-0f628f261ee1.herokuapp.com/components/registar.php";
     let fData = new FormData();
     fData.append("name", name);
     fData.append("email", email);

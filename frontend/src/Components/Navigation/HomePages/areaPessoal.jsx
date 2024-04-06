@@ -15,7 +15,7 @@ function AreaPessoal() {
         if (errors.length > 0) {
             return;
         }
-        const url = "http://localhost:8000/components/areaPessoal.php";
+        const url = "https://familia-gouveia-0f628f261ee1.herokuapp.com/components/areaPessoal.php";
         let fData = new FormData();
         fData.append("email", email);
         fData.append("password", password);

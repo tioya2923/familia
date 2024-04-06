@@ -19,7 +19,7 @@ const AdPrivacidade = () => {
         try {
             const response = await axios({
                 method: 'post',
-                url: 'http://localhost:8000/components/regPrivacidade.php',
+                url: 'https://familia-gouveia-0f628f261ee1.herokuapp.com/components/regPrivacidade.php',
                 data: formData
             });
 

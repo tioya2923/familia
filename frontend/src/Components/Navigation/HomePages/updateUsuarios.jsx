@@ -9,7 +9,7 @@ const UpdateUsuarios = () => {
 
     const deleteUser = (id) => {
         if (window.confirm('Tem a certeza de que deseja eliminar?')) {
-            axios.delete(`http://localhost:8000/components/deleteUsuario.php?id=${id}`)
+            axios.delete(`https://familia-gouveia-0f628f261ee1.herokuapp.com/components/deleteUsuario.php?id=${id}`)
                 .then(response => {
                     console.log(response.data);
                     alert('Usuário eliminado com sucesso');

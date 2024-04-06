@@ -6,7 +6,7 @@ const DeletePhoto = () => {
   const [photos, setPhotos] = useState([]);
 
   useEffect(() => {
-    axios.get("http://localhost:8000/components/eliminarPhoto.php").then(response => {
+    axios.get("https://familia-gouveia-0f628f261ee1.herokuapp.com/components/eliminarPhoto.php").then(response => {
       setPhotos(response.data);
     });
   }, []);
@@ -15,7 +15,7 @@ const DeletePhoto = () => {
     const userConfirmation = window.confirm("Tem certeza que deseja eliminar a fotografia?");
 
     if (userConfirmation) {
-      axios.delete(`http://localhost:8000/components/exclusaoPhoto.php?id=${id}`).then(response => {
+      axios.delete(`https://familia-gouveia-0f628f261ee1.herokuapp.com/components/exclusaoPhoto.php?id=${id}`).then(response => {
         console.log(response.data);
         setPhotos(photos.filter(photo => photo.id !== id));
         alert("A fotografia foi eliminada com sucesso!");

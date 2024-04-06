@@ -53,7 +53,7 @@ function Login() {
             }
         };
         try {
-            const response = await axios.post('http://localhost:8000/components/verifyCode.php', data, config);
+            const response = await axios.post('https://familia-gouveia-0f628f261ee1.herokuapp.com/components/verifyCode.php', data, config);
             setMessage(response.data.message);
         } catch (error) {
             console.error('Erro ao verificar o código:', error);

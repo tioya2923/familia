@@ -7,8 +7,7 @@ import Videos from "./videos";
 
 const Home = () => {
     return (
-        <div>
-            
+        <div>            
             <Fotografias />
             <Videos />    
         </div>
