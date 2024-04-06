@@ -1,1 +1,1 @@
-web: node frontend/src/index.js
+web: vendor/bin/heroku-php-apache2 frontend/build/
