@@ -5,7 +5,11 @@
         "node": "14.x"
     },
     "scripts": {
-        "heroku-postbuild": "cd frontend && npm install && npm run build"
+        "start": "react-scripts start",
+        "build": "react-scripts build",
+        "test": "react-scripts test",
+        "eject": "react-scripts eject",
+        "heroku-postbuild": "npm install && npm run build --prefix frontend"
     },
     "devDependencies": {
         "@babel/plugin-proposal-private-property-in-object": "^7.14.5"
