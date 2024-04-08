@@ -1,4 +1,12 @@
 Options -MultiViews
 RewriteEngine On
+
+# Não reescreva URLs para arquivos ou diretórios existentes
 RewriteCond %{REQUEST_FILENAME} !-f
-RewriteRule ^ index.html [QSA,L]
+RewriteCond %{REQUEST_FILENAME} !-d
+
+# Não reescreva para rotas API
+RewriteCond %{REQUEST_URI} !^/api
+
+# Reescreva todas as outras solicitações para index.php
+RewriteRule ^ index.php [QSA,L]
