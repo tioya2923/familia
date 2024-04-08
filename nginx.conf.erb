@@ -1,14 +1,15 @@
-location / {
-    # tente servir o arquivo diretamente, fallback para reescrita
-    try_files $uri @rewriteapp;
-}
+server {
+    listen 80;
+    server_name frontend/build;
 
-location @rewriteapp {
-    # reescreva tudo para index.php
-    rewrite ^(.*)$ /index.php/$1 last;
-}
+    location / {
+        root frontend/build;
+        try_files $uri /index.html;
+    }
 
-location ~ ^/(app|app_dev|config)\\.php(/|$) {
-    try_files @heroku-fcgi @heroku-fcgi;
-    internal;
+    location ~ \.php$ {
+        root /backend;
+        include snippets/fastcgi-php.conf;
+        fastcgi_pass unix:/var/run/php/php7.0-fpm.sock;
+    }
 }
