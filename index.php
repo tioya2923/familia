@@ -1,6 +1,6 @@
 <?php
 // Defina o caminho para o arquivo index.html na pasta build
-$index_file_path = 'frontend/build/index.html';
+$index_file_path = 'frontend/public/';
 
 // Verifique se o arquivo existe
 if (!file_exists($index_file_path)) {
