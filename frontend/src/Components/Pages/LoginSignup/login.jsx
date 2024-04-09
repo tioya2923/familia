@@ -27,7 +27,7 @@ function Login() {
             return; // Prevent login attempt
         }
 
-        const url = "http://localhost:8000/components/login.php";
+        const url = process.env.CLEARDB_DATABASE_URL + "/components/login.php";
         let fData = new FormData();
         fData.append('email', email);
         fData.append('password', password);
@@ -53,7 +53,7 @@ function Login() {
             }
         };
         try {
-            const response = await axios.post('http://localhost:8000/components/verifyCode.php', data, config);
+            const response = await axios.post(process.env.CLEARDB_DATABASE_URL + "/components/verifyCode.php", data, config);
             setMessage(response.data.message);
         } catch (error) {
             console.error('Erro ao verificar o código:', error);
