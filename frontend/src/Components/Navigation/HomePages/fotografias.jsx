@@ -7,7 +7,7 @@ const Fotografias = () => {
     const [images, setImages] = useState([]);
     useEffect(() => {
         const fetchData = async () => {
-            const response = await fetch("https://familia-gouveia-0f628f261ee1.herokuapp.com/fotografias.php", { method: "GET" });
+            const response = await fetch("http://localhost:8000/components/fotografias.php", { method: "GET" });
             if (response.ok) {
                 const data = await response.json();
                 setImages(data);

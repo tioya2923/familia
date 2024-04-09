@@ -8,7 +8,7 @@ const UpdateAdministradores = () => {
 
 
     const getUsers = () => {
-        axios.get('https://familia-gouveia-0f628f261ee1.herokuapp.com/components/updateAdministradores.php')
+        axios.get('http://localhost:8000/components/updateAdministradores.php')
             .then(response => {
                 console.log(response.data);
                 if (Array.isArray(response.data)) {
