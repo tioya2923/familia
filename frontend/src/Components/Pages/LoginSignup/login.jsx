@@ -15,6 +15,7 @@ function Login() {
     const navigate = useNavigate();
     const [codigo, setCodigo] = useState('');
     const [message, setMessage] = useState('');
+    const API_BASE_URL = 'https://familia-gouveia-0f628f261ee1.herokuapp.com';
 
     const handleSubmit = () => {
         const errors = validateInputs();
@@ -27,7 +28,7 @@ function Login() {
             return; // Prevent login attempt
         }
 
-        const url = process.env.CLEARDB_DATABASE_URL + "/components/login.php";
+        const url = (`${API_BASE_URL}/components/login.php`);
         let fData = new FormData();
         fData.append('email', email);
         fData.append('password', password);
@@ -53,7 +54,7 @@ function Login() {
             }
         };
         try {
-            const response = await axios.post(process.env.CLEARDB_DATABASE_URL + "/components/verifyCode.php", data, config);
+            const response = await axios.post(`${API_BASE_URL}/components/verifyCode.php`, data, config);
             setMessage(response.data.message);
         } catch (error) {
             console.error('Erro ao verificar o código:', error);
