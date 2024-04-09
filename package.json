@@ -1,0 +1,13 @@
+{
+    "name": "family",
+    "version": "1.0.0",
+    "scripts": {
+      "start": "cd frontend && npm start",
+      "build": "cd frontend && npm run build",
+      "postbuild": "cd frontend && npm run postbuild"
+    },
+    "engines": {
+      "node": "20.x"
+    }
+  }
+  
