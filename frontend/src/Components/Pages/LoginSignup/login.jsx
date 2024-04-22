@@ -15,24 +15,22 @@ function Login() {
     const navigate = useNavigate();
     const [codigo, setCodigo] = useState('');
     const [message, setMessage] = useState('');
-    const API_BASE_URL = 'https://familia-gouveia-0f628f261ee1.herokuapp.com';
-
+    
+    //const API_BASE_URL = 'https://familia-gouveia-0f628f261ee1.herokuapp.com/components/';
+    const API_BASE_URL = '/components/'; 
     const handleSubmit = () => {
         const errors = validateInputs();
         if (errors.length > 0) {
             return;
         }
 
-        if (!message.includes('Código correto')) { // Check for verification success
+        if (!message.includes('Código correto')) {
             toast.error('Por favor, verifique o código antes de entrar.');
-            return; // Prevent login attempt
+            return;
         }
 
-        const url = (`${API_BASE_URL}/components/login.php`);
-        let fData = new FormData();
-        fData.append('email', email);
-        fData.append('password', password);
-        axios.post(url, fData)
+        const url = `${API_BASE_URL}login.php`;
+        axios.post(url, { email, password })
             .then(response => {
                 if (response.data === 'Login bem-sucedido') {
                     toast.success('Login bem-sucedido');
@@ -53,8 +51,10 @@ function Login() {
                 'Content-Type': 'application/json'
             }
         };
+    
+        const url = `${API_BASE_URL}verifyCode.php`; // Atualize para a URL do Heroku
         try {
-            const response = await axios.post(`${API_BASE_URL}/components/verifyCode.php`, data, config);
+            const response = await axios.post(url, data, config);
             setMessage(response.data.message);
         } catch (error) {
             console.error('Erro ao verificar o código:', error);
@@ -94,7 +94,7 @@ function Login() {
                             {showPassword ? <FiEyeOff /> : <FiEye />}
                         </i>
                     </div>
-                    <span id="password-error" className="form-error"></span> 
+                    <span id="password-error" className="form-error"></span>
                     <div className="form-field">
                         <input
                             type="text"
@@ -105,14 +105,14 @@ function Login() {
                         {message && <p>{message}</p>}
                     </div>
                     <button onClick={handleSubmit} className="button-form">Entrar</button>
-                   <div  className="login-form-register">
-                   <Link to="/register">faça aqui o teu registo</Link>
-                   </div>
+                    <div className="login-form-register">
+                        <Link to="/register">faça aqui o teu registo</Link>
+                    </div>
                     <ToastContainer />
                 </div>
             </div>
         </div>
     );
-    
+
 }
 export default Login;
