@@ -17,7 +17,8 @@ function Login() {
     const [message, setMessage] = useState('');
     
     
-    const API_BASE_URL = '/components/'; 
+    //const API_BASE_URL = '/components/'; 
+
     const handleSubmit = () => {
         const errors = validateInputs();
         if (errors.length > 0) {
@@ -29,7 +30,7 @@ function Login() {
             return;
         }
 
-        const url = `${API_BASE_URL}login.php`;
+        const url = `${process.env.REACT_APP_API_URL}login.php`;
         axios.post(url, { email, password })
             .then(response => {
                 if (response.data === 'Login bem-sucedido') {
@@ -52,8 +53,8 @@ function Login() {
             }
         };
     
-        const url = "http://localhost:8000/components/verifyCode.php"
-        //const url = `${API_BASE_URL}verifyCode.php`; // Atualize para a URL do Heroku
+        //const url = "http://localhost:8000/components/verifyCode.php"
+        const url = `${process.env.REACT_APP_API_URL}verifyCode.php`; // Atualize para a URL do Heroku
         try {
             const response = await axios.post(url, data, config);
             setMessage(response.data.message);
