@@ -16,7 +16,7 @@ function Login() {
     const [codigo, setCodigo] = useState('');
     const [message, setMessage] = useState('');
     
-    //const API_BASE_URL = 'https://familia-gouveia-0f628f261ee1.herokuapp.com/components/';
+    
     const API_BASE_URL = '/components/'; 
     const handleSubmit = () => {
         const errors = validateInputs();
@@ -52,7 +52,8 @@ function Login() {
             }
         };
     
-        const url = `${API_BASE_URL}verifyCode.php`; // Atualize para a URL do Heroku
+        const url = "http://localhost:8000/components/verifyCode.php"
+        //const url = `${API_BASE_URL}verifyCode.php`; // Atualize para a URL do Heroku
         try {
             const response = await axios.post(url, data, config);
             setMessage(response.data.message);

@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/static/css/main.2fe33499.css",
-    "main.js": "/static/js/main.44cd620c.js",
+    "main.js": "/static/js/main.888e1e95.js",
     "reactPlayerYouTube.js": "/static/js/reactPlayerYouTube.9723d7aa.chunk.js",
     "reactPlayerSoundCloud.js": "/static/js/reactPlayerSoundCloud.9537e4dc.chunk.js",
     "reactPlayerVimeo.js": "/static/js/reactPlayerVimeo.57663333.chunk.js",
@@ -19,7 +19,7 @@
     "static/media/logoveia.png": "/static/media/logoveia.e5f765d3294aa036ecd6.png",
     "index.html": "/index.html",
     "main.2fe33499.css.map": "/static/css/main.2fe33499.css.map",
-    "main.44cd620c.js.map": "/static/js/main.44cd620c.js.map",
+    "main.888e1e95.js.map": "/static/js/main.888e1e95.js.map",
     "reactPlayerYouTube.9723d7aa.chunk.js.map": "/static/js/reactPlayerYouTube.9723d7aa.chunk.js.map",
     "reactPlayerSoundCloud.9537e4dc.chunk.js.map": "/static/js/reactPlayerSoundCloud.9537e4dc.chunk.js.map",
     "reactPlayerVimeo.57663333.chunk.js.map": "/static/js/reactPlayerVimeo.57663333.chunk.js.map",
@@ -37,6 +37,6 @@
   },
   "entrypoints": [
     "static/css/main.2fe33499.css",
-    "static/js/main.44cd620c.js"
+    "static/js/main.888e1e95.js"
   ]
 }

@@ -1,6 +1,6 @@
 <?php
 
-// Incluir o ficheiro de conexão
+// Incluir o ficheiro cors
 include 'cors.php';
 
 // Obter variáveis de ambiente do Heroku
@@ -32,10 +32,10 @@ if ($conn->connect_error) {
 
 // // // Conectar ao banco de dados
 
-// $servername = $url["us-cluster-east-01.k8s.cleardb.net"];
-// $username = $url["b9be19dd73d363"];
-// $password = $url["f1497694"];
-// $dbname = substr($url["heroku_1100169a60b63f3"], 1);
+$servername = $url["us-cluster-east-01.k8s.cleardb.net"];
+$username = $url["b9be19dd73d363"];
+$password = $url["f1497694"];
+$dbname = substr($url["heroku_1100169a60b63f3"], 1);
 // // $servername = "localhost";
 // // $username = "root";
 // // $password = "19101989";
