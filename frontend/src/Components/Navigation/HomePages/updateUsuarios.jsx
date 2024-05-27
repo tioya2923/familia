@@ -24,7 +24,7 @@ const UpdateUsuarios = () => {
     const getUsers = () => {
         axios.get('http://localhost:8000/components/updateUsuarios.php')
             .then(response => {
-                console.log(response.data);
+                //console.log(response.data);
                 if (Array.isArray(response.data)) {
                     setUsers(response.data);
                 } else {

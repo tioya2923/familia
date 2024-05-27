@@ -15,9 +15,6 @@ function Login() {
     const navigate = useNavigate();
     const [codigo, setCodigo] = useState('');
     const [message, setMessage] = useState('');
-    
-    
-    //const API_BASE_URL = '/components/'; 
 
     const handleSubmit = () => {
         const errors = validateInputs();
@@ -25,13 +22,16 @@ function Login() {
             return;
         }
 
-        if (!message.includes('Código correto')) {
+        if (!message.includes('Código correto')) { // Check for verification success
             toast.error('Por favor, verifique o código antes de entrar.');
-            return;
+            return; // Prevent login attempt
         }
 
-        const url = `${process.env.REACT_APP_API_URL}login.php`;
-        axios.post(url, { email, password })
+        const url = "http://localhost:8000/components/login.php";
+        let fData = new FormData();
+        fData.append('email', email);
+        fData.append('password', password);
+        axios.post(url, fData)
             .then(response => {
                 if (response.data === 'Login bem-sucedido') {
                     toast.success('Login bem-sucedido');
@@ -52,11 +52,8 @@ function Login() {
                 'Content-Type': 'application/json'
             }
         };
-    
-        //const url = "http://localhost:8000/components/verifyCode.php"
-        const url = `${process.env.REACT_APP_API_URL}verifyCode.php`; // Atualize para a URL do Heroku
         try {
-            const response = await axios.post(url, data, config);
+            const response = await axios.post('http://localhost:8000/components/verifyCode.php', data, config);
             setMessage(response.data.message);
         } catch (error) {
             console.error('Erro ao verificar o código:', error);
@@ -83,7 +80,7 @@ function Login() {
     }, [loggedIn, navigate]); // Passa loggedIn como dependência do efeito
     return (
         <div className="container-login">
-            <h1 className="login-form">Iniciar Sessão<output></output></h1>
+            <h1 className="login-form">Iniciar Sessã</h1>
             <div className="login-form">
                 <div className="login-form-group">
                     <label htmlFor="email"></label>
@@ -96,7 +93,7 @@ function Login() {
                             {showPassword ? <FiEyeOff /> : <FiEye />}
                         </i>
                     </div>
-                    <span id="password-error" className="form-error"></span>
+                    <span id="password-error" className="form-error"></span> 
                     <div className="form-field">
                         <input
                             type="text"
@@ -107,14 +104,14 @@ function Login() {
                         {message && <p>{message}</p>}
                     </div>
                     <button onClick={handleSubmit} className="button-form">Entrar</button>
-                    <div className="login-form-register">
-                        <Link to="/register">faça aqui o teu registo</Link>
-                    </div>
+                   <div  className="login-form-register">
+                   <Link to="/register">faça aqui o teu registo</Link>
+                   </div>
                     <ToastContainer />
                 </div>
             </div>
         </div>
     );
-
+    
 }
 export default Login;

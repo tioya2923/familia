@@ -25,12 +25,12 @@ if (!empty ($approvalCode)) {
                         $userEmail = $user['email'];
 
                         // Enviar um email ao usuário com um link para a página de início de sessão
-                        $subject = "Sua conta foi aprovada!";
-                        $message = "Parabéns, sua conta foi aprovada! Você pode iniciar sessão aqui: http://localhost:3000/login";
-                        $messagecod = "Insira o seguinte código: FAMILIAGOUVEIA7916!";
-                        $headers = "From: noreply@seusite.com";
+                       $subject = "Sua conta foi aprovada!";
+                        $message = "Parabéns, sua conta foi aprovada! Você pode iniciar sessão aqui: http://localhost:3000/login\n";
+                        $message .= "Insira o seguinte código: FAMILIAGOUVEIA7916!";
+                        $headers = "From: familia16gouveia@gmail.com";
 
-                        if (mail($userEmail, $subject, $messagecod, $message, $headers)) {
+                        if (mail($userEmail, $subject, $message, $headers)) {
                             echo "Usuário aprovado com sucesso!";
                         } else {
                             echo "Falha ao enviar o e-mail.";

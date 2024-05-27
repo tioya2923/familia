@@ -1,54 +1,31 @@
 <?php
+// Substitua o valor abaixo com a sua URL de conexão real
+$clearDbUrl = getenv('CLEARDB_DATABASE_URL') ?: 'mysql://b9be19dd73d363:f1497694@us-cluster-east-01.k8s.cleardb.net/heroku_1100169a60b63f3';
 
-// Incluir o ficheiro cors
-include 'cors.php';
+// Parse the URL and extract the connection details
+$url = parse_url($clearDbUrl);
 
-// Obter variáveis de ambiente do Heroku
-$url = parse_url(getenv("CLEARDB_DATABASE_URL"));
+// Verifique se todas as partes necessárias estão presentes
+if (!isset($url["host"]) || !isset($url["user"]) || !isset($url["pass"]) || !isset($url["path"])) {
+    die("URL de conexão com o banco de dados está incompleta ou incorreta.");
+}
+$host = $url["host"];
+$user = $url["user"];
+$password = $url["pass"];
+$db = substr($url["path"], 1);
 
-// Conectar ao banco de dados
-parse_str(parse_url($url)['query'], $params);
-$servername = $params['server'];
-$username = $params['user'];
-$password = $params['pass'];
-$dbname = substr($params['db'], 1); // Remove a barra inicial do nome do banco de dados
+// Definir as variáveis de conexão
+define('DB_HOST', $host);
+define('DB_USER', $user);
+define('DB_PASSWORD', $password);
+define('DB_NAME', $db);
 
-$conn = new mysqli($servername, $username, $password, $dbname);
+// Conexão com a base de dados
+$conn = new mysqli(DB_HOST, DB_USER, DB_PASSWORD, DB_NAME);
 
 // Verificar a conexão
 if ($conn->connect_error) {
-  die("Conexão falhou: " . $conn->connect_error);
+    die("Conexão falhou: " . $conn->connect_error);
 }
 
-// Resto do código...
-
-
-// // Incluir o ficheiro de conexão
-// include 'cors.php';
-
-// // Obter variáveis de ambiente do Heroku
-// CLEARDB_DATABASE_URL: mysql://b9be19dd73d363:f1497694@us-cluster-east-01.k8s.cleardb.net/heroku_1100169a60b63f3?reconnect=true
-// $url = parse_url(getenv("CLEARDB_DATABASE_URL"));
-
-// // // Conectar ao banco de dados
-
-$servername = $url["us-cluster-east-01.k8s.cleardb.net"];
-$username = $url["b9be19dd73d363"];
-$password = $url["f1497694"];
-$dbname = substr($url["heroku_1100169a60b63f3"], 1);
-// // $servername = "localhost";
-// // $username = "root";
-// // $password = "19101989";
-// // $dbname = "happy_family";
-
-// $conn = new mysqli($servername, $username, $password, $dbname);
-
-// if ($conn->connect_error) {
-//   die("Conexão falhou: " . $conn->connect_error);
-// } else{
-  
-// }
-// CONEXÃO LOCAL:
-
 ?>
-

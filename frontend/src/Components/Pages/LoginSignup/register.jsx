@@ -11,6 +11,9 @@ function Register() {
   const [showPassword, setShowPassword] = useState(false);
   const [confirmError, setConfirmError] = useState("");
   const [registered, setRegistered] = useState(false);
+
+  //const API_BASE_URL = process.env.REACT_APP_API_BASE_URL;
+
   const handleSubmit = () => {
     const errors = validateInputs();
     if (errors.length > 0) {
@@ -20,7 +23,8 @@ function Register() {
       setConfirmError("As palavras passe não coincidem");
       return;
     }
-    const url = "http://localhost:8000/components/registar.php";
+    //const url = `${API_BASE_URL}components/registar.php`;
+    const url = "http://localhost:8000/components/registar.php"
     let fData = new FormData();
     fData.append("name", name);
     fData.append("email", email);
