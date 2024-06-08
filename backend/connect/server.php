@@ -1,4 +1,5 @@
 <?php
+require_once 'cors.php';
 // Substitua o valor abaixo com a sua URL de conexão real
 $clearDbUrl = getenv('CLEARDB_DATABASE_URL') ?: 'mysql://b9be19dd73d363:f1497694@us-cluster-east-01.k8s.cleardb.net/heroku_1100169a60b63f3';
 

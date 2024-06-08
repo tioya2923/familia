@@ -1,8 +1,12 @@
+
 <?php
 // Incluir o ficheiro de conexão
 require_once '../connect/server.php';
 require_once '../connect/cors.php';
+require_once '../vendor/autoload.php';
 
+use PHPMailer\PHPMailer\PHPMailer;
+use PHPMailer\PHPMailer\Exception;
 // Obter o código de aprovação do URL
 $approvalCode = filter_input(INPUT_GET, "code", FILTER_SANITIZE_ADD_SLASHES);
 
@@ -25,15 +29,28 @@ if (!empty ($approvalCode)) {
                         $userEmail = $user['email'];
 
                         // Enviar um email ao usuário com um link para a página de início de sessão
-                       $subject = "Sua conta foi aprovada!";
-                        $message = "Parabéns, sua conta foi aprovada! Você pode iniciar sessão aqui: http://localhost:3000/login\n";
-                        $message .= "Insira o seguinte código: FAMILIAGOUVEIA7916!";
-                        $headers = "From: familia16gouveia@gmail.com";
+                        $mail = new PHPMailer(true);
+                        try {
+                            $mail->isSMTP();
+                            $mail->Host = 'smtp.gmail.com';
+                            $mail->SMTPAuth = true;
+                            $mail->Username = 'familia16gouveia@gmail.com';
+                            $mail->Password = 'yapmmohabliiqyny';
+                            $mail->SMTPSecure = PHPMailer::ENCRYPTION_SMTPS;
+                            $mail->Port = 465;
 
-                        if (mail($userEmail, $subject, $message, $headers)) {
+                            $mail->setFrom('familia16gouveia@gmail.com', 'Família Gouveia');
+                            $mail->addAddress($userEmail);
+
+                            $mail->isHTML(true);
+                            $mail->Subject = 'Conta aprovada!';
+                            $mail->Body    = "Parabéns, a sua conta foi aprovada! Podes iniciar sessão aqui: http://localhost:3000/login<br>Insira o seguinte código: FAMILIAGOUVEIA7916!";
+                            $mail->AltBody = "Parabéns, a sua conta foi aprovada! Podes iniciar sessão aqui: http://localhost:3000/login\nInsira o seguinte código: FAMILIAGOUVEIA7916!";
+
+                            $mail->send();
                             echo "Usuário aprovado com sucesso!";
-                        } else {
-                            echo "Falha ao enviar o e-mail.";
+                        } catch (Exception $e) {
+                            handleUncaughtException($e); // Chama o manipulador de exceções personalizado
                         }
                     } else {
                         echo "Falha ao atualizar o status do usuário.";

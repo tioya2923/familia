@@ -26,7 +26,7 @@ function Login() {
             toast.error('Por favor, verifique o código antes de entrar.');
             return; // Prevent login attempt
         }
-
+        //const url = "https://familia-gouveia-0f628f261ee1.herokuapp.com/components/login.php";
         const url = "http://localhost:8000/components/login.php";
         let fData = new FormData();
         fData.append('email', email);
@@ -53,7 +53,8 @@ function Login() {
             }
         };
         try {
-            const response = await axios.post('http://localhost:8000/components/verifyCode.php', data, config);
+            const response = await axios.post('https://familia-gouveia-0f628f261ee1.herokuapp.com/components/verifyCode.php', data, config);
+            //const response = await axios.post('http://localhost:8000/components/verifyCode.php', data, config);
             setMessage(response.data.message);
         } catch (error) {
             console.error('Erro ao verificar o código:', error);

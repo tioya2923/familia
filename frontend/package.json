@@ -14,7 +14,8 @@
     "eject": "react-scripts eject",
     "dev": "NODE_OPTIONS=--openssl-legacy-provider npm run start"
   },
-  "author": "Seu Nome",
+  "proxy": "https://familia-gouveia-0f628f261ee1.herokuapp.com",
+  "author": "João Dumba",
   "license": "ISC",
   "dependencies": {
     "axios": "^1.6.8",
